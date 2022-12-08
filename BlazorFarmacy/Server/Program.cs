@@ -1,8 +1,15 @@
+using BlazorFarmacy.Server.Model;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<ApplicationDbContext>(
+    options => options.UseSqlServer(
+        builder.Configuration.GetConnectionString("SqlConnection")));
+
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();

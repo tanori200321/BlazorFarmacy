@@ -4,6 +4,7 @@ namespace BlazorFarmacy.Server.Model.Entities
 {
     public class Empleado
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]
